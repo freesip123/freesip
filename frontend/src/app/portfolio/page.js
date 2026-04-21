@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import Header from '@/components/layout/Header';
@@ -82,7 +82,7 @@ const defaultProjects = [
   },
 ];
 
-export default function PortfolioPage() {
+function PortfolioContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category') || 'all';
 
@@ -294,5 +294,13 @@ export default function PortfolioPage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function PortfolioPage() {
+  return (
+    <Suspense fallback={<div className="pt-20"><Header /><div className="container-custom py-20 text-center">Loading...</div></div>}>
+      <PortfolioContent />
+    </Suspense>
   );
 }
