@@ -46,10 +46,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORS middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: [
+    "https://freesip.co.in",
+    "http://localhost:3000",
+    "http://168.231.121.155:3000"
+  ],
   credentials: true
 }));
-
 // Compression middleware
 app.use(compression());
 
