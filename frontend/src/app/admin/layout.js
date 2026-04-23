@@ -42,6 +42,11 @@ export default function AdminLayout({ children }) {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Skip layout for login page
+  if (pathname === '/admin/login') {
+    return children;
+  }
+
   useEffect(() => {
     if (!isAuthenticated) {
       router.push('/admin/login');
@@ -62,7 +67,7 @@ export default function AdminLayout({ children }) {
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-50 lg:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
@@ -70,7 +75,7 @@ export default function AdminLayout({ children }) {
       {/* Sidebar */}
       <aside
         className={cn(
-          'fixed top-0 left-0 z-50 h-full w-72 bg-white dark:bg-dark-800 border-r border-gray-200 dark:border-dark-700',
+          'fixed top-0 left-0 z-[60] h-full w-72 bg-white dark:bg-dark-800 border-r border-gray-200 dark:border-dark-700',
           'transform transition-transform duration-300 lg:translate-x-0',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         )}
@@ -137,7 +142,7 @@ export default function AdminLayout({ children }) {
       </aside>
 
       {/* Main content */}
-      <div className="lg:ml-72">
+      <div className={cn('transition-all duration-300', isMobileMenuOpen ? 'ml-72' : 'ml-0', 'lg:ml-72')}>
         {/* Top bar */}
         <header className="sticky top-0 z-30 h-20 bg-white/80 dark:bg-dark-800/80 backdrop-blur-xl border-b border-gray-200 dark:border-dark-700">
           <div className="h-full flex items-center justify-between px-6">

@@ -24,25 +24,25 @@ const contactInfo = [
   {
     icon: Mail,
     title: 'Email Us',
-    content: 'hello@freesip.com',
+    content: 'info@freesip.co.in',
     href: 'mailto:hello@freesip.com',
   },
   {
     icon: Phone,
     title: 'Call Us',
-    content: '+1 (415) 555-1234',
-    href: 'tel:+14155551234',
+    content: '+91-9069216003',
+    href: 'tel:+91-9069216003',
   },
   {
     icon: MapPin,
     title: 'Visit Us',
-    content: 'San Francisco, CA, United States',
+    content: 'Gadpuri ,Palwal',
     href: '#',
   },
   {
     icon: Clock,
     title: 'Business Hours',
-    content: 'Mon - Fri: 9:00 AM - 6:00 PM PST',
+    content: 'Mon - Fri: 9:00 AM - 6:00 PM IST',
     href: '#',
   },
 ];
@@ -59,11 +59,11 @@ const serviceOptions = [
 
 const budgetOptions = [
   { value: 'not-sure', label: "I'm not sure" },
-  { value: '<5k', label: '< $5,000' },
-  { value: '5k-10k', label: '$5,000 - $10,000' },
-  { value: '10k-25k', label: '$10,000 - $25,000' },
-  { value: '25k-50k', label: '$25,000 - $50,000' },
-  { value: '50k+', label: '$50,000+' },
+  { value: '<5k', label: '< 5,000' },
+  { value: '5k-10k', label: '5,000 - 10,000' },
+  { value: '10k-25k', label: '10,000 - 25,000' },
+  { value: '25k-50k', label: '25,000 - 50,000' },
+  { value: '50k+', label: '50,000+' },
 ];
 
 export default function ContactPage() {
@@ -239,7 +239,7 @@ export default function ContactPage() {
                       <Input
                         label="Phone"
                         name="phone"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+91 9999988888"
                         value={formData.phone}
                         onChange={handleChange}
                       />
@@ -306,29 +306,7 @@ export default function ContactPage() {
           </div>
         </Section>
 
-        {/* Map Section */}
-        <Section background="alt" padding="none">
-          <div className="w-full h-96 bg-gray-200 dark:bg-dark-800 relative">
-            {/* Placeholder for Google Maps - replace with actual map component */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 dark:text-gray-400">
-                  San Francisco, CA
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-                  Google Maps integration would go here
-                </p>
-              </div>
-            </div>
-            {/*
-            To add real Google Maps:
-            1. Get API key from Google Cloud Console
-            2. Install @react-google-maps/api
-            3. Replace this div with GoogleMap component
-            */}
-          </div>
-        </Section>
+      
       </main>
       <Footer />
     </>
