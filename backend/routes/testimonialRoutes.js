@@ -12,16 +12,17 @@ import { testimonialValidator, idParamValidator } from '../middleware/validation
 
 const router = express.Router();
 
+// Admin routes (must be before public routes to avoid conflicts)
+router.route('/admin')
+  .get(protect, admin, adminGetTestimonials)
+  .post(protect, admin, testimonialValidator, createTestimonial);
+
+router.route('/admin/:id')
+  .put(protect, admin, idParamValidator, updateTestimonial)
+  .delete(protect, admin, idParamValidator, deleteTestimonial);
+
 // Public routes
 router.get('/:id', getTestimonial);
 router.get('/', getTestimonials);
-
-// Admin routes
-router.use('/admin', protect, admin);
-
-router.get('/', adminGetTestimonials);
-router.post('/', testimonialValidator, createTestimonial);
-router.put('/:id', idParamValidator, updateTestimonial);
-router.delete('/:id', idParamValidator, deleteTestimonial);
 
 export default router;

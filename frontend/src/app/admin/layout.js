@@ -32,8 +32,14 @@ const navItems = [
 ];
 
 export default function AdminLayout({ children }) {
-  const router = useRouter();
   const pathname = usePathname();
+
+  // Skip layout for login page - MUST be before any other hooks
+  if (pathname === '/admin/login') {
+    return children;
+  }
+
+  const router = useRouter();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const logout = useAuthStore((state) => state.logout);
   const user = useAuthStore((state) => state.user);
@@ -41,11 +47,6 @@ export default function AdminLayout({ children }) {
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Skip layout for login page
-  if (pathname === '/admin/login') {
-    return children;
-  }
 
   useEffect(() => {
     if (!isAuthenticated) {

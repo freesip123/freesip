@@ -13,17 +13,18 @@ import { jobListingValidator, idParamValidator } from '../middleware/validation.
 
 const router = express.Router();
 
+// Admin routes (must be before public routes to avoid conflicts)
+router.route('/admin')
+  .get(protect, admin, adminGetJobs)
+  .post(protect, admin, jobListingValidator, createJob);
+
+router.route('/admin/:id')
+  .put(protect, admin, idParamValidator, updateJob)
+  .delete(protect, admin, idParamValidator, deleteJob);
+
 // Public routes
 router.get('/slug/:slug', getJobBySlug);
 router.get('/:id', getJob);
 router.get('/', getJobs);
-
-// Admin routes
-router.use('/admin', protect, admin);
-
-router.get('/', adminGetJobs);
-router.post('/', jobListingValidator, createJob);
-router.put('/:id', idParamValidator, updateJob);
-router.delete('/:id', idParamValidator, deleteJob);
 
 export default router;

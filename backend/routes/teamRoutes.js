@@ -12,16 +12,17 @@ import { teamMemberValidator, idParamValidator } from '../middleware/validation.
 
 const router = express.Router();
 
+// Admin routes (must be before public routes to avoid conflicts)
+router.route('/admin')
+  .get(protect, admin, adminGetTeamMembers)
+  .post(protect, admin, teamMemberValidator, createTeamMember);
+
+router.route('/admin/:id')
+  .put(protect, admin, idParamValidator, updateTeamMember)
+  .delete(protect, admin, idParamValidator, deleteTeamMember);
+
 // Public routes
 router.get('/:id', getTeamMember);
 router.get('/', getTeamMembers);
-
-// Admin routes
-router.use('/admin', protect, admin);
-
-router.get('/', adminGetTeamMembers);
-router.post('/', teamMemberValidator, createTeamMember);
-router.put('/:id', idParamValidator, updateTeamMember);
-router.delete('/:id', idParamValidator, deleteTeamMember);
 
 export default router;

@@ -111,34 +111,34 @@ export const adminApi = {
   getMe: () => api.get(apiEndpoints.getMe),
 
   // Projects
-  getProjects: () => api.get('/admin/projects'),
-  createProject: (data) => api.post('/admin/projects', data),
-  updateProject: (id, data) => api.put(`/admin/projects/${id}`, data),
-  deleteProject: (id) => api.delete(`/admin/projects/${id}`),
+  getProjects: () => api.get('/projects/admin'),
+  createProject: (data) => api.post('/projects/admin', data),
+  updateProject: (id, data) => api.put(`/projects/admin/${id}`, data),
+  deleteProject: (id) => api.delete(`/projects/admin/${id}`),
 
   // Services
-  getServices: () => api.get('/admin/services'),
-  createService: (data) => api.post('/admin/services', data),
-  updateService: (id, data) => api.put(`/admin/services/${id}`, data),
-  deleteService: (id) => api.delete(`/admin/services/${id}`),
+  getServices: () => api.get('/services/admin'),
+  createService: (data) => api.post('/services/admin', data),
+  updateService: (id, data) => api.put(`/services/admin/${id}`, data),
+  deleteService: (id) => api.delete(`/services/admin/${id}`),
 
   // Testimonials
-  getTestimonials: () => api.get('/admin/testimonials'),
-  createTestimonial: (data) => api.post('/admin/testimonials', data),
-  updateTestimonial: (id, data) => api.put(`/admin/testimonials/${id}`, data),
-  deleteTestimonial: (id) => api.delete(`/admin/testimonials/${id}`),
+  getTestimonials: () => api.get('/testimonials/admin'),
+  createTestimonial: (data) => api.post('/testimonials/admin', data),
+  updateTestimonial: (id, data) => api.put(`/testimonials/admin/${id}`, data),
+  deleteTestimonial: (id) => api.delete(`/testimonials/admin/${id}`),
 
   // Jobs
-  getJobs: () => api.get('/admin/jobs'),
-  createJob: (data) => api.post('/admin/jobs', data),
-  updateJob: (id, data) => api.put(`/admin/jobs/${id}`, data),
-  deleteJob: (id) => api.delete(`/admin/jobs/${id}`),
+  getJobs: () => api.get('/jobs/admin'),
+  createJob: (data) => api.post('/jobs/admin', data),
+  updateJob: (id, data) => api.put(`/jobs/admin/${id}`, data),
+  deleteJob: (id) => api.delete(`/jobs/admin/${id}`),
 
   // Team
-  getTeam: () => api.get('/admin/team'),
-  createTeamMember: (data) => api.post('/admin/team', data),
-  updateTeamMember: (id, data) => api.put(`/admin/team/${id}`, data),
-  deleteTeamMember: (id) => api.delete(`/admin/team/${id}`),
+  getTeam: () => api.get('/team/admin'),
+  createTeamMember: (data) => api.post('/team/admin', data),
+  updateTeamMember: (id, data) => api.put(`/team/admin/${id}`, data),
+  deleteTeamMember: (id) => api.delete(`/team/admin/${id}`),
 
   // Contact
   getContactMessages: (params) => api.get('/contact', { params }),
