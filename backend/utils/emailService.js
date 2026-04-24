@@ -1,7 +1,24 @@
 import nodemailer from 'nodemailer';
 
+// Check if email is properly configured
+const isEmailConfigured = () => {
+  return !!(
+    process.env.EMAIL_HOST &&
+    process.env.EMAIL_PORT &&
+    process.env.EMAIL_USER &&
+    process.env.EMAIL_PASS &&
+    process.env.EMAIL_USER !== 'your-email@gmail.com' &&
+    process.env.EMAIL_PASS !== 'your-app-password'
+  );
+};
+
 // Create transporter
 const createTransporter = () => {
+  if (!isEmailConfigured()) {
+    console.warn('Email not configured - emails will not be sent. Set EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASS in .env');
+    return null;
+  }
+
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
@@ -16,6 +33,7 @@ const createTransporter = () => {
 // Send contact form notification to admin
 export const sendContactEmail = async (contactMessage) => {
   const transporter = createTransporter();
+  if (!transporter) return; // Skip if email not configured
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,
@@ -46,6 +64,7 @@ export const sendContactEmail = async (contactMessage) => {
 // Send confirmation email to user
 export const sendContactConfirmation = async (contactMessage) => {
   const transporter = createTransporter();
+  if (!transporter) return; // Skip if email not configured
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,
@@ -78,6 +97,7 @@ export const sendContactConfirmation = async (contactMessage) => {
 // Send job application notification
 export const sendJobApplicationEmail = async (application) => {
   const transporter = createTransporter();
+  if (!transporter) return; // Skip if email not configured
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,

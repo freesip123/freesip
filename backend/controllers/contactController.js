@@ -29,7 +29,10 @@ export const submitContact = asyncHandler(async (req, res) => {
       sendContactConfirmation(contactMessage)
     ]);
   } catch (emailError) {
-    console.error('Email sending failed:', emailError);
+    // Only log if it's a real error, not if email is simply not configured
+    if (!emailError.message?.includes('not configured')) {
+      console.log('Email sending skipped:', emailError.message);
+    }
     // Don't fail the request if email fails
   }
 
