@@ -88,12 +88,14 @@ app.use((req, res) => {
   });
 });
 
-// Error handler middleware (must be last)
-app.use(errorHandler);
+// Logging middleware (for all requests)
 app.use((req, res, next) => {
   console.log("👉", req.method, req.url);
   next();
 });
+
+// Error handler middleware (must be last)
+app.use(errorHandler);
 
 // Start server
 const PORT = process.env.PORT || 5000;

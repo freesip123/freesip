@@ -22,19 +22,9 @@ export const submitContact = asyncHandler(async (req, res) => {
     userAgent: req.get('user-agent')
   });
 
-  // Send emails (non-blocking)
-  try {
-    await Promise.all([
-      sendContactEmail(contactMessage),
-      sendContactConfirmation(contactMessage)
-    ]);
-  } catch (emailError) {
-    // Only log if it's a real error, not if email is simply not configured
-    if (!emailError.message?.includes('not configured')) {
-      console.log('Email sending skipped:', emailError.message);
-    }
-    // Don't fail the request if email fails
-  }
+  // Send emails (non-blocking, fire-and-forget)
+  sendContactEmail(contactMessage).catch(err => console.error('Admin email failed:', err.message));
+  sendContactConfirmation(contactMessage).catch(err => console.error('User email failed:', err.message));
 
   res.status(201).json({
     success: true,
