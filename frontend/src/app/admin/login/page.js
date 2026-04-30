@@ -130,34 +130,38 @@ export default function AdminLoginPage() {
               label="Email"
               name="email"
               type="email"
-              placeholder="admin@freesip.com"
+              placeholder="Enter admin mail"
               value={formData.email}
               onChange={handleChange}
               error={errors.email}
               leftIcon={<Mail className="w-5 h-5" />}
             />
 
-            <div className="relative">
-              <Input
-                label="Password"
-                name="password"
-                type={showPassword ? 'text' : 'password'}
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleChange}
-                error={errors.password}
-                leftIcon={<Lock className="w-5 h-5" />}
-                rightIcon={
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-9 text-gray-400 hover:text-gray-600"
-                  >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                  </button>
-                }
-              />
-            </div>
+           <div className="relative">
+  <Input
+    label="Password"
+    name="password"
+    type={showPassword ? 'text' : 'password'}
+    placeholder="Enter your password"
+    value={formData.password}
+    onChange={handleChange}
+    error={errors.password}
+    leftIcon={<Lock className="w-5 h-5" />}
+    rightIcon={
+      <button
+        type="button"
+        onClick={() => setShowPassword(!showPassword)}
+        className="flex items-center justify-center text-gray-400 hover:text-gray-600"
+      >
+        {showPassword ? (
+          <EyeOff className="w-5 h-5" />
+        ) : (
+          <Eye className="w-5 h-5" />
+        )}
+      </button>
+    }
+  />
+</div>
 
             <Button
               type="submit"
@@ -170,18 +174,7 @@ export default function AdminLoginPage() {
             </Button>
           </form>
 
-          {/* Demo credentials */}
-          <div className="mt-6 p-4 bg-gray-50 dark:bg-dark-700 rounded-xl">
-            <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              Demo Credentials:
-            </p>
-            <p className="text-xs text-gray-600 dark:text-gray-400">
-              Email: <code className="bg-white dark:bg-dark-600 px-2 py-0.5 rounded">admin@freesip.com</code>
-            </p>
-            <p className="text-xs text-gray-600 dark:text-gray-400">
-              Password: <code className="bg-white dark:bg-dark-600 px-2 py-0.5 rounded">Admin@123456</code>
-            </p>
-          </div>
+          
         </div>
       </motion.div>
     </div>
