@@ -36,7 +36,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: 'Visit Us',
-    content: 'Gadpuri ,Palwal',
+    content: 'Gadpuri,Faridabad',
     href: '#',
   },
   {
@@ -219,7 +219,7 @@ export default function ContactPage() {
                       <Input
                         label="Name *"
                         name="name"
-                        placeholder="John Doe"
+                        placeholder="Enter the Name"
                         value={formData.name}
                         onChange={handleChange}
                         error={errors.name}
@@ -228,7 +228,7 @@ export default function ContactPage() {
                         label="Email *"
                         name="email"
                         type="email"
-                        placeholder="john@example.com"
+                        placeholder="mail@example.com"
                         value={formData.email}
                         onChange={handleChange}
                         error={errors.email}
@@ -239,7 +239,7 @@ export default function ContactPage() {
                       <Input
                         label="Phone"
                         name="phone"
-                        placeholder="+91 9999988888"
+                        placeholder="+91 "
                         value={formData.phone}
                         onChange={handleChange}
                       />

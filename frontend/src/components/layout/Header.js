@@ -135,7 +135,7 @@ export default function Header() {
             {/* Admin link */}
             {isAuthenticated && (
               <Link
-                href="/admin"
+                href="/admin/login"
                 className="hidden sm:block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 Dashboard
