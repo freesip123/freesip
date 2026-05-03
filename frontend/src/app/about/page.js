@@ -11,28 +11,28 @@ import { publicApi } from '@/lib/api';
 
 const defaultTeam = [
   {
-    name: 'Alex Thompson',
+    name: 'Hemant Verma',
     role: 'CEO & Founder',
-    bio: '15+ years in software development. Previously led engineering teams at Fortune 500 companies.',
-    avatar: null,
+    bio: '8+ years in software development. Previously led engineering teams at Accenture.',
+    avatar: '/images/team/Hemant.jpeg',
   },
   {
     name: 'Priya Sharma',
     role: 'CTO',
     bio: 'Full-stack architect with expertise in cloud infrastructure and scalable systems.',
-    avatar: null,
+    avatar: '/images/team/Priya-Sharma.jpeg',
   },
   {
-    name: 'Marcus Williams',
+    name: 'Pawan kumar',
     role: 'Lead Designer',
-    bio: 'Award-winning UI/UX designer passionate about creating intuitive digital experiences.',
-    avatar: null,
+    bio: 'Award-winning UI/UX designer passionate about creating intuitive digital experiences. Previously work for Stripe 3 years',
+    avatar: '/images/team/Pawan-Kumar.jpeg',
   },
   {
-    name: 'Lisa Chang',
+    name: 'Sudhir Gupta',
     role: 'Head of Mobile',
     bio: 'Mobile development expert with 10+ years building iOS and Android applications.',
-    avatar: null,
+    avatar: '/images/team/Sudhir-gupta.jpeg',
   },
 ];
 
