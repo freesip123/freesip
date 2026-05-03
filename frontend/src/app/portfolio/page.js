@@ -1,5 +1,5 @@
 'use client';
-
+import Image from "next/image";
 import { useEffect, useState, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
@@ -185,11 +185,12 @@ function PortfolioContent() {
                         {/* Image */}
                         <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
                           {project.featuredImage ? (
-                            <img
-                              src={project.featuredImage}
-                              alt={project.title}
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            />
+                            <Image
+    src={project.featuredImage}
+    alt={project.title}
+    fill
+    className="object-cover group-hover:scale-110 transition-transform duration-500"
+  />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center">
                               <span className="text-white/20 text-6xl font-bold">
@@ -283,7 +284,7 @@ function PortfolioContent() {
                 Have a Project in Mind?
               </h2>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
-                Let's collaborate to create something amazing together. We're ready to bring your vision to life.
+               Let&apos;s collaborate to create something amazing together. We&apos;re ready to bring your vision to life.
               </p>
               <a
                 href="/contact"

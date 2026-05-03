@@ -53,7 +53,7 @@ export default function CTASection() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-6"
           >
-            Let's Build Something{' '}
+            {"Let's Build Something "}
             <span className="text-white/80">Amazing Together</span>
           </motion.h2>
 
@@ -65,7 +65,7 @@ export default function CTASection() {
             transition={{ delay: 0.2 }}
             className="text-xl text-white/80 mb-10 max-w-2xl mx-auto"
           >
-            Have a project in mind? We'd love to hear about it. Let's discuss how we can help bring your vision to life.
+           {" Have a project in mind? We'd love to hear about it. Let's discuss how we can help bring your vision to life."}
           </motion.p>
 
           {/* CTA buttons */}

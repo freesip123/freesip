@@ -81,8 +81,7 @@ export default function ServicesOverview() {
             Our <span className="gradient-text">Services</span>
           </SectionTitle>
           <SectionDescription>
-            We offer comprehensive software development services to bring your ideas to life.
-            From concept to deployment, we've got you covered.
+           {"We offer comprehensive software development services to bring your ideas to life. From concept to deployment, we've got you covered."}
           </SectionDescription>
         </SectionHeader>
 

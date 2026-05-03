@@ -174,7 +174,7 @@ export default function ServicesPage() {
                       {service.features && (
                         <div className="mb-6">
                           <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                            What's included:
+                          What&apos;s included:
                           </h4>
                           <ul className="space-y-2">
                             {service.features.slice(0, 4).map((feature, i) => (
@@ -245,7 +245,7 @@ export default function ServicesPage() {
                 Ready to Start Your Project?
               </h2>
               <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-                Let's discuss your ideas and turn them into reality. Get a free consultation and quote.
+               {"Let's discuss your ideas and turn them into reality. Get a free consultation and quote."}
               </p>
               <Button
                 as="a"

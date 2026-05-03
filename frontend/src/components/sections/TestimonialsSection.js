@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Section, SectionHeader, SectionTitle, SectionDescription } from '@/components/ui/Section';
@@ -60,18 +60,20 @@ export default function TestimonialsSection() {
     fetchTestimonials();
   }, []);
 
-  const nextTestimonial = () => {
+  // ✅ FIX: wrap in useCallback
+  const nextTestimonial = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const prevTestimonial = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  // ✅ FIX: include nextTestimonial
   useEffect(() => {
     const timer = setInterval(nextTestimonial, 6000);
     return () => clearInterval(timer);
-  }, [testimonials.length]);
+  }, [nextTestimonial]);
 
   return (
     <Section id="testimonials">
@@ -81,7 +83,7 @@ export default function TestimonialsSection() {
             What Our <span className="gradient-text">Clients Say</span>
           </SectionTitle>
           <SectionDescription>
-            Don't just take our word for it. Hear from some of our satisfied clients.
+            {"Don't just take our word for it. Hear from some of our satisfied clients."}
           </SectionDescription>
         </SectionHeader>
 
@@ -95,22 +97,18 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.5 }}
               className="bg-white dark:bg-dark-800 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200 dark:border-dark-700"
             >
-              {/* Quote icon */}
               <Quote className="w-12 h-12 text-blue-500/20 mb-6" />
 
-              {/* Rating */}
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
-              {/* Content */}
               <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-                "{testimonials[currentIndex].content}"
-              </p>
+  {`"${testimonials[currentIndex].content}"`}
+</p>
 
-              {/* Author */}
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
                   {testimonials[currentIndex].name.charAt(0)}
@@ -127,7 +125,6 @@ export default function TestimonialsSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation buttons */}
           <div className="flex justify-center gap-4 mt-8">
             <Button
               variant="secondary"
@@ -149,7 +146,6 @@ export default function TestimonialsSection() {
             </Button>
           </div>
 
-          {/* Dots indicator */}
           <div className="flex justify-center gap-2 mt-6">
             {testimonials.map((_, index) => (
               <button

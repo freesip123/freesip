@@ -1,5 +1,5 @@
 'use client';
-
+import Image from "next/image";
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Plus, Edit2, Trash2, ExternalLink, Eye, Calendar } from 'lucide-react';
@@ -145,7 +145,12 @@ export default function AdminProjects() {
             <Card key={project._id} className="p-0 overflow-hidden">
               <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 relative">
                 {project.featuredImage ? (
-                  <img src={project.featuredImage} alt={project.title} className="w-full h-full object-cover" />
+                 <Image
+  src={project.featuredImage}
+  alt={project.title}
+  fill
+  className="object-cover"
+/>
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
                     <span className="text-white/20 text-6xl font-bold">

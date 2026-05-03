@@ -1,12 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { Section, SectionHeader, SectionTitle, SectionDescription, SectionBadge } from '@/components/ui/Section';
-import { Card } from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import {
+  Section,
+  SectionHeader,
+  SectionTitle,
+  SectionDescription,
+  SectionBadge,
+} from "@/components/ui/Section";
+import { Card } from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
 import {
   Briefcase,
   MapPin,
@@ -16,84 +22,102 @@ import {
   ArrowRight,
   CheckCircle,
   Laptop,
-  Globe
-} from 'lucide-react';
-import { publicApi } from '@/lib/api';
+  Globe,
+} from "lucide-react";
+import { publicApi } from "@/lib/api";
 
 const defaultJobs = [
   {
-    title: 'Senior Full Stack Developer',
-    slug: 'senior-full-stack-developer',
-    department: 'engineering',
-    type: 'full-time',
-    location: 'San Francisco, CA',
+    title: "Senior Full Stack Developer",
+    slug: "senior-full-stack-developer",
+    department: "engineering",
+    type: "full-time",
+    location: "San Francisco, CA",
     isRemote: true,
-    salary: { min: 120000, max: 180000, period: 'yearly' },
-    description: 'We\'re looking for an experienced Full Stack Developer to join our growing team.',
+    salary: { min: 120000, max: 180000, period: "yearly" },
+    description:
+      "We're looking for an experienced Full Stack Developer to join our growing team.",
     responsibilities: [
-      'Design and implement scalable web applications',
-      'Collaborate with cross-functional teams',
-      'Mentor junior developers',
-      'Participate in code reviews',
+      "Design and implement scalable web applications",
+      "Collaborate with cross-functional teams",
+      "Mentor junior developers",
+      "Participate in code reviews",
     ],
     requirements: [
-      '5+ years of experience in full stack development',
-      'Proficiency in React, Node.js, and databases',
-      'Experience with cloud platforms (AWS/Azure)',
-      'Strong problem-solving skills',
+      "5+ years of experience in full stack development",
+      "Proficiency in React, Node.js, and databases",
+      "Experience with cloud platforms (AWS/Azure)",
+      "Strong problem-solving skills",
     ],
-    benefits: ['Competitive salary', 'Health insurance', 'Remote work options', 'Learning budget'],
-    skills: ['React', 'Node.js', 'TypeScript', 'AWS', 'MongoDB'],
+    benefits: [
+      "Competitive salary",
+      "Health insurance",
+      "Remote work options",
+      "Learning budget",
+    ],
+    skills: ["React", "Node.js", "TypeScript", "AWS", "MongoDB"],
     isFeatured: true,
   },
   {
-    title: 'UI/UX Designer',
-    slug: 'ui-ux-designer',
-    department: 'design',
-    type: 'full-time',
-    location: 'New York, NY',
+    title: "UI/UX Designer",
+    slug: "ui-ux-designer",
+    department: "design",
+    type: "full-time",
+    location: "New York, NY",
     isRemote: true,
-    salary: { min: 90000, max: 140000, period: 'yearly' },
-    description: 'Join our design team to create beautiful and intuitive user experiences.',
+    salary: { min: 90000, max: 140000, period: "yearly" },
+    description:
+      "Join our design team to create beautiful and intuitive user experiences.",
     responsibilities: [
-      'Create wireframes, prototypes, and high-fidelity designs',
-      'Conduct user research and usability testing',
-      'Collaborate with developers and product managers',
-      'Maintain and evolve our design system',
+      "Create wireframes, prototypes, and high-fidelity designs",
+      "Conduct user research and usability testing",
+      "Collaborate with developers and product managers",
+      "Maintain and evolve our design system",
     ],
     requirements: [
-      '4+ years of UI/UX design experience',
-      'Proficiency in Figma and Adobe Creative Suite',
-      'Strong portfolio demonstrating UX skills',
-      'Understanding of front-end development',
+      "4+ years of UI/UX design experience",
+      "Proficiency in Figma and Adobe Creative Suite",
+      "Strong portfolio demonstrating UX skills",
+      "Understanding of front-end development",
     ],
-    benefits: ['Creative environment', 'Latest design tools', 'Conference attendance', 'Flexible hours'],
-    skills: ['Figma', 'User Research', 'Prototyping', 'Design Systems'],
+    benefits: [
+      "Creative environment",
+      "Latest design tools",
+      "Conference attendance",
+      "Flexible hours",
+    ],
+    skills: ["Figma", "User Research", "Prototyping", "Design Systems"],
     isFeatured: true,
   },
   {
-    title: 'DevOps Engineer',
-    slug: 'devops-engineer',
-    department: 'engineering',
-    type: 'full-time',
-    location: 'Austin, TX',
+    title: "DevOps Engineer",
+    slug: "devops-engineer",
+    department: "engineering",
+    type: "full-time",
+    location: "Austin, TX",
     isRemote: true,
-    salary: { min: 110000, max: 160000, period: 'yearly' },
-    description: 'Help us build and maintain our cloud infrastructure and CI/CD pipelines.',
+    salary: { min: 110000, max: 160000, period: "yearly" },
+    description:
+      "Help us build and maintain our cloud infrastructure and CI/CD pipelines.",
     responsibilities: [
-      'Manage cloud infrastructure on AWS/Azure',
-      'Build and maintain CI/CD pipelines',
-      'Implement monitoring and alerting systems',
-      'Ensure security and compliance',
+      "Manage cloud infrastructure on AWS/Azure",
+      "Build and maintain CI/CD pipelines",
+      "Implement monitoring and alerting systems",
+      "Ensure security and compliance",
     ],
     requirements: [
-      '3+ years of DevOps experience',
-      'Experience with Docker and Kubernetes',
-      'Proficiency in Infrastructure as Code (Terraform)',
-      'Strong scripting skills',
+      "3+ years of DevOps experience",
+      "Experience with Docker and Kubernetes",
+      "Proficiency in Infrastructure as Code (Terraform)",
+      "Strong scripting skills",
     ],
-    benefits: ['Remote-first culture', 'Stock options', 'Home office stipend', 'Unlimited PTO'],
-    skills: ['AWS', 'Kubernetes', 'Terraform', 'Jenkins', 'Python'],
+    benefits: [
+      "Remote-first culture",
+      "Stock options",
+      "Home office stipend",
+      "Unlimited PTO",
+    ],
+    skills: ["AWS", "Kubernetes", "Terraform", "Jenkins", "Python"],
     isFeatured: false,
   },
 ];
@@ -120,7 +144,7 @@ export default function CareersPage() {
           setJobs(response.data.data);
         }
       } catch (error) {
-        console.error('Failed to fetch jobs:', error);
+        console.error("Failed to fetch jobs:", error);
       }
     };
     fetchJobs();
@@ -136,12 +160,12 @@ export default function CareersPage() {
             <SectionHeader maxWidth="lg">
               <SectionBadge>Careers</SectionBadge>
               <SectionTitle>
-                Join Our{' '}
-                <span className="gradient-text">Team</span>
+                Join Our <span className="gradient-text">Team</span>
               </SectionTitle>
               <SectionDescription>
-                We're always looking for talented individuals who are passionate about
-                building great software. Explore our open positions and become part of our journey.
+                We&apos;re always looking for talented individuals who are
+                passionate about building great software. Explore our open
+                positions and become part of our journey.
               </SectionDescription>
             </SectionHeader>
           </div>
@@ -158,33 +182,37 @@ export default function CareersPage() {
               {[
                 {
                   icon: Globe,
-                  title: 'Remote First',
-                  description: 'Work from anywhere with our flexible remote policy.',
+                  title: "Remote First",
+                  description:
+                    "Work from anywhere with our flexible remote policy.",
                 },
                 {
                   icon: DollarSign,
-                  title: 'Competitive Pay',
-                  description: 'Industry-leading compensation and equity packages.',
+                  title: "Competitive Pay",
+                  description:
+                    "Industry-leading compensation and equity packages.",
                 },
                 {
                   icon: Clock,
-                  title: 'Flexible Hours',
-                  description: 'Work when you\'re most productive.',
+                  title: "Flexible Hours",
+                  description: "Work when you're most productive.",
                 },
                 {
                   icon: Briefcase,
-                  title: 'Growth Opportunities',
-                  description: 'Continuous learning and career advancement.',
+                  title: "Growth Opportunities",
+                  description: "Continuous learning and career advancement.",
                 },
                 {
                   icon: Laptop,
-                  title: 'Latest Tech',
-                  description: 'Top-notch equipment and tools to do your best work.',
+                  title: "Latest Tech",
+                  description:
+                    "Top-notch equipment and tools to do your best work.",
                 },
                 {
                   icon: Building,
-                  title: 'Great Culture',
-                  description: 'Collaborative, inclusive, and fun work environment.',
+                  title: "Great Culture",
+                  description:
+                    "Collaborative, inclusive, and fun work environment.",
                 },
               ].map((perk, index) => (
                 <motion.div
@@ -232,9 +260,11 @@ export default function CareersPage() {
                 >
                   <Card
                     className={`cursor-pointer transition-all duration-300 ${
-                      selectedJob === job.slug ? 'ring-2 ring-blue-500' : ''
+                      selectedJob === job.slug ? "ring-2 ring-blue-500" : ""
                     }`}
-                    onClick={() => setSelectedJob(selectedJob === job.slug ? null : job.slug)}
+                    onClick={() =>
+                      setSelectedJob(selectedJob === job.slug ? null : job.slug)
+                    }
                   >
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                       <div className="flex-grow">
@@ -257,19 +287,27 @@ export default function CareersPage() {
                         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
                           <span className="flex items-center gap-1">
                             <MapPin className="w-4 h-4" />
-                            {job.location} {job.isRemote && '(Remote)'}
+                            {job.location} {job.isRemote && "(Remote)"}
                           </span>
                           <span className="flex items-center gap-1">
                             <DollarSign className="w-4 h-4" />
-                            {formatSalary(job.salary.min, job.salary.max, job.salary.period)}
+                            {formatSalary(
+                              job.salary.min,
+                              job.salary.max,
+                              job.salary.period,
+                            )}
                           </span>
                         </div>
                       </div>
                       <Button variant="outline" size="sm">
-                        {selectedJob === job.slug ? 'Show Less' : 'View Details'}
-                        <ArrowRight className={`w-4 h-4 ml-1 transition-transform ${
-                          selectedJob === job.slug ? 'rotate-90' : ''
-                        }`} />
+                        {selectedJob === job.slug
+                          ? "Show Less"
+                          : "View Details"}
+                        <ArrowRight
+                          className={`w-4 h-4 ml-1 transition-transform ${
+                            selectedJob === job.slug ? "rotate-90" : ""
+                          }`}
+                        />
                       </Button>
                     </div>
 
@@ -277,7 +315,7 @@ export default function CareersPage() {
                     {selectedJob === job.slug && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
+                        animate={{ opacity: 1, height: "auto" }}
                         className="mt-6 pt-6 border-t border-gray-200 dark:border-dark-700"
                       >
                         <div className="grid md:grid-cols-2 gap-6">
@@ -288,7 +326,10 @@ export default function CareersPage() {
                             </h4>
                             <ul className="space-y-2">
                               {job.responsibilities.map((item, i) => (
-                                <li key={i} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                                <li
+                                  key={i}
+                                  className="flex items-start text-sm text-gray-600 dark:text-gray-400"
+                                >
                                   <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                                   {item}
                                 </li>
@@ -303,7 +344,10 @@ export default function CareersPage() {
                             </h4>
                             <ul className="space-y-2">
                               {job.requirements.map((item, i) => (
-                                <li key={i} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                                <li
+                                  key={i}
+                                  className="flex items-start text-sm text-gray-600 dark:text-gray-400"
+                                >
                                   <CheckCircle className="w-4 h-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
                                   {item}
                                 </li>
@@ -355,10 +399,10 @@ export default function CareersPage() {
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-12">
               <h2 className="text-3xl font-bold text-white mb-4">
-                Don't See the Right Role?
+              {"  Don't See the Right Role?"}
               </h2>
               <p className="text-white/80 mb-8">
-                We're always interested in meeting talented people. Send us your resume and we'll keep you in mind for future opportunities.
+               {"We're always interested in meeting talented people. Send us your resume and we'll keep you in mind for future opportunities."}
               </p>
               <a
                 href="/contact"

@@ -34,11 +34,6 @@ const navItems = [
 export default function AdminLayout({ children }) {
   const pathname = usePathname();
 
-  // Skip layout for login page - MUST be before any other hooks
-  if (pathname === '/admin/login') {
-    return children;
-  }
-
   const router = useRouter();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const logout = useAuthStore((state) => state.logout);
@@ -49,15 +44,20 @@ export default function AdminLayout({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!isAuthenticated && pathname !== '/admin/login') {
       router.push('/admin/login');
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, pathname, router]);
 
   const handleLogout = () => {
     logout();
     router.push('/admin/login');
   };
+
+  // ✅ moved AFTER hooks (fix)
+  if (pathname === '/admin/login') {
+    return children;
+  }
 
   if (!isAuthenticated) {
     return null;
@@ -65,7 +65,6 @@ export default function AdminLayout({ children }) {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-dark-900">
-      {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-50 lg:hidden"
@@ -73,7 +72,6 @@ export default function AdminLayout({ children }) {
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={cn(
           'fixed top-0 left-0 z-[60] h-full w-72 bg-white dark:bg-dark-800 border-r border-gray-200 dark:border-dark-700',
@@ -81,7 +79,6 @@ export default function AdminLayout({ children }) {
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
-        {/* Logo */}
         <div className="h-20 flex items-center justify-between px-6 border-b border-gray-200 dark:border-dark-700">
           <Link href="/admin/dashboard" className="flex items-center space-x-2">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
@@ -97,7 +94,6 @@ export default function AdminLayout({ children }) {
           </button>
         </div>
 
-        {/* Navigation */}
         <nav className="p-4 space-y-1 overflow-y-auto h-[calc(100%-140px)]">
           {navItems.map((item) => {
             const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
@@ -119,7 +115,6 @@ export default function AdminLayout({ children }) {
           })}
         </nav>
 
-        {/* User section */}
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-dark-700">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -142,9 +137,7 @@ export default function AdminLayout({ children }) {
         </div>
       </aside>
 
-      {/* Main content */}
       <div className={cn('transition-all duration-300', isMobileMenuOpen ? 'ml-72' : 'ml-0', 'lg:ml-72')}>
-        {/* Top bar */}
         <header className="sticky top-0 z-30 h-20 bg-white/80 dark:bg-dark-800/80 backdrop-blur-xl border-b border-gray-200 dark:border-dark-700">
           <div className="h-full flex items-center justify-between px-6">
             <button
@@ -155,7 +148,6 @@ export default function AdminLayout({ children }) {
             </button>
 
             <div className="flex items-center space-x-4 ml-auto">
-              {/* Home link */}
               <Link
                 href="/"
                 className="p-2 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
@@ -164,7 +156,6 @@ export default function AdminLayout({ children }) {
                 <Home className="w-5 h-5" />
               </Link>
 
-              {/* Theme toggle */}
               <button
                 onClick={toggleTheme}
                 className="p-2 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
@@ -184,10 +175,7 @@ export default function AdminLayout({ children }) {
           </div>
         </header>
 
-        {/* Page content */}
-        <main className="p-6">
-          {children}
-        </main>
+        <main className="p-6">{children}</main>
       </div>
     </div>
   );

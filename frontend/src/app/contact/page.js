@@ -157,12 +157,12 @@ export default function ContactPage() {
             <SectionHeader maxWidth="lg">
               <SectionBadge>Contact Us</SectionBadge>
               <SectionTitle>
-                Let's Start a{' '}
+               Let&apos;s Start a{' '}
                 <span className="gradient-text">Conversation</span>
               </SectionTitle>
               <SectionDescription>
-                Have a question or want to discuss a project? We'd love to hear from you.
-                Send us a message and we'll respond within 24-48 hours.
+                Have a question or want to discuss a project? We&apos;d love to hear from you.
+Send us a message and we&apos;ll respond within 24-48 hours.
               </SectionDescription>
             </SectionHeader>
           </div>
