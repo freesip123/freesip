@@ -39,10 +39,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: 'GitHub', href: 'https://github.com/freesip', icon: Github },
-  { name: 'Twitter', href: 'https://twitter.com/freesip', icon: Twitter },
-  { name: 'LinkedIn', href: 'https://linkedin.com/company/freesip', icon: Linkedin },
-  { name: 'Instagram', href: 'https://instagram.com/freesip', icon: Instagram },
+  { name: 'GitHub', href: 'https://github.com/freesip123', icon: Github },
+  { name: 'Twitter', href: 'https://x.com/FreesipIndia', icon: Twitter },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/freesip-advertising-media/', icon: Linkedin },
+  { name: 'Instagram', href: 'https://www.instagram.com/freesip.co.in?igsh=dzZ2N3d1bjBmbWRq', icon: Instagram },
 ];
 
 export default function Footer() {
@@ -139,18 +139,18 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-gray-400 text-sm">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <span>San Francisco, CA<br />United States</span>
+                <span> Building no.85 Gadpuri, Faridabd<br />Haryana IN 121004</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-400 text-sm">
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <a href="mailto:hello@freesip.com" className="hover:text-white transition-colors">
-                  hello@freesip.com
+                <a href="mailto:info@freesip.co.in" className="hover:text-white transition-colors">
+                  info@freesip.co.in
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-gray-400 text-sm">
                 <Phone className="w-5 h-5 flex-shrink-0" />
-                <a href="tel:+14155551234" className="hover:text-white transition-colors">
-                  +1 (415) 555-1234
+                <a href="+91-8383890437" className="hover:text-white transition-colors">
+                  +91-8383890437
                 </a>
               </li>
             </ul>

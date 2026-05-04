@@ -25,18 +25,18 @@ const contactInfo = [
     icon: Mail,
     title: 'Email Us',
     content: 'info@freesip.co.in',
-    href: 'mailto:hello@freesip.com',
+    href: 'mailto:info@freesip.co.in',
   },
   {
     icon: Phone,
     title: 'Call Us',
-    content: '+91-9069216003',
-    href: 'tel:+91-9069216003',
+    content: '+91-8383890437',
+    href: 'tel:+91-8383890437',
   },
   {
     icon: MapPin,
     title: 'Visit Us',
-    content: 'Gadpuri,Faridabad',
+    content: 'Building no.85 Gadpuri, Faridabd Haryana IN 121004',
     href: '#',
   },
   {
