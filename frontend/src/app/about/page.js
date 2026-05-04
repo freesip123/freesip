@@ -275,18 +275,19 @@ export default function AboutPage() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Card className="text-center h-full group">
-                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform duration-300">
-                      {member.avatar ? (
-                        <Image
-                          src="/about.jpg"
-                          alt="about"
-                          width={500}
-                          height={300}
-                        />
-                      ) : (
-                        member.name.charAt(0)
-                      )}
-                    </div>
+                   <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-2xl group-hover:scale-110 transition-transform duration-300">
+  {member.avatar ? (
+    <Image
+      src={member.avatar}
+      alt={member.name}
+      width={96}
+      height={96}
+      className="object-cover w-full h-full"
+    />
+  ) : (
+    member.name.charAt(0)
+  )}
+</div>
                     <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
                       {member.name}
                     </h4>
