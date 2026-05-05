@@ -32,7 +32,7 @@ const defaultJobs = [
     slug: "senior-full-stack-developer",
     department: "engineering",
     type: "full-time",
-    location: "San Francisco, CA",
+    location: "Faridabd",
     isRemote: true,
     salary: { min: 120000, max: 180000, period: "yearly" },
     description:
@@ -63,7 +63,7 @@ const defaultJobs = [
     slug: "ui-ux-designer",
     department: "design",
     type: "full-time",
-    location: "New York, NY",
+    location: "Faridabd",
     isRemote: true,
     salary: { min: 90000, max: 140000, period: "yearly" },
     description:
@@ -94,7 +94,7 @@ const defaultJobs = [
     slug: "devops-engineer",
     department: "engineering",
     type: "full-time",
-    location: "Austin, TX",
+    location: "Delhi",
     isRemote: true,
     salary: { min: 110000, max: 160000, period: "yearly" },
     description:
@@ -124,12 +124,34 @@ const defaultJobs = [
 
 function formatSalary(min, max, period) {
   const formatNum = (num) => {
-    if (num >= 1000) {
-      return `$${(num / 1000).toFixed(0)}k`;
+    if (!num && num !== 0) return '';
+
+    // Convert to LPA if yearly salary
+    if (period === 'year') {
+      return `₹${(num / 100000).toFixed(1)} LPA`;
     }
-    return `$${num}`;
+
+    // Monthly format
+    if (num >= 100000) {
+      return `₹${(num / 100000).toFixed(1)}L`;
+    }
+
+    if (num >= 1000) {
+      return `₹${(num / 1000).toFixed(0)}k`;
+    }
+
+    return `₹${num}`;
   };
-  return `${formatNum(min)} - ${formatNum(max)} / ${period}`;
+
+  if (min && max) {
+    return `${formatNum(min)} - ${formatNum(max)}`;
+  }
+
+  if (min) {
+    return `${formatNum(min)}`;
+  }
+
+  return 'Salary not disclosed';
 }
 
 export default function CareersPage() {

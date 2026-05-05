@@ -133,7 +133,7 @@ export default function AboutPage() {
                   <div className="w-full h-full rounded-3xl bg-white dark:bg-dark-800 flex items-center justify-center p-8">
                     <div className="text-center">
                       <div className="text-6xl md:text-7xl font-bold gradient-text mb-4">
-                        5+
+                        2+
                       </div>
                       <div className="text-gray-600 dark:text-gray-400">
                         Years of Innovation
@@ -155,7 +155,7 @@ export default function AboutPage() {
                   Our Story
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                  Founded in 2021, Freesip Software Solutions started with a
+                  Founded in 2024, Freesip Software Solutions started with a
                   simple belief: technology should empower businesses, not
                   complicate them. What began as a small team of dedicated
                   developers has grown into a full-service software company.

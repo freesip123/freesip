@@ -80,25 +80,69 @@ const defaultServices = [
     benefits: ['Increased Conversion', 'Better User Retention', 'Brand Consistency', 'Reduced Support Costs'],
     technologies: ['Figma', 'Adobe XD', 'Sketch', 'Principle', 'Framer'],
   },
-  {
-    title: 'API Development',
-    slug: 'api-development',
-    shortDescription: 'Robust and secure APIs that power your applications and integrations.',
-    fullDescription: 'We design and develop RESTful and GraphQL APIs that are secure, well-documented, and easy to integrate. Our APIs follow best practices for authentication, rate limiting, and versioning.',
-    icon: 'Server',
-    features: ['RESTful APIs', 'GraphQL APIs', 'API Documentation', 'Authentication & Authorization', 'Rate Limiting'],
-    benefits: ['Seamless Integrations', 'High Performance', 'Secure by Design', 'Well Documented'],
-    technologies: ['Express', 'FastAPI', 'GraphQL', 'Swagger', 'Postman'],
+   {
+    title: 'AI Automation Workflow',
+    slug: 'ai-automation-workflow',
+    shortDescription:
+      'Automate your business processes using AI-powered workflows and smart integrations.',
+    fullDescription:
+      'We build intelligent automation systems that streamline your business operations using AI and no-code/low-code tools. From lead management to invoicing and notifications, we eliminate repetitive tasks and improve efficiency using powerful workflow automation platforms.',
+    icon: 'Bot',
+    features: [
+      'Workflow Automation',
+      'CRM Automation',
+      'Lead Capture & Routing',
+      'Invoice Automation',
+      'Email & WhatsApp Notifications',
+      'Third-party Integrations'
+    ],
+    benefits: [
+      'Save Time & Cost',
+      'Reduce Manual Work',
+      'Increase Productivity',
+      'Error-Free Processes',
+      'Faster Response Time'
+    ],
+    technologies: [
+      'Make.com',
+      'Zapier',
+      'n8n',
+      'OpenAI API',
+      'Google Sheets',
+      'Webhooks'
+    ],
   },
+
   {
-    title: 'Cloud Solutions',
-    slug: 'cloud-solutions',
-    shortDescription: 'Scalable cloud infrastructure and DevOps services for modern applications.',
-    fullDescription: 'Leverage the power of cloud computing with our infrastructure and DevOps services. We help you migrate, optimize, and manage your applications on AWS, Azure, or Google Cloud.',
-    icon: 'CloudCog',
-    features: ['Cloud Migration', 'Infrastructure Setup', 'CI/CD Pipelines', 'Monitoring & Logging', 'Cost Optimization'],
-    benefits: ['High Availability', 'Auto Scaling', 'Disaster Recovery', 'Cost Efficient'],
-    technologies: ['AWS', 'Azure', 'GCP', 'Terraform', 'Jenkins'],
+    title: 'Social Media Setup',
+    slug: 'social-media-setup',
+    shortDescription:
+      'Complete social media branding and setup to establish your online presence.',
+    fullDescription:
+      'We provide a one-time complete social media setup to help your brand stand out. This includes profile optimization, professional cover designs, branded templates, and compelling bio copywriting tailored to your audience.',
+    icon: 'Share2',
+    features: [
+      'Profile Optimization',
+      'Cover Art Design',
+      'Bio Copywriting',
+      '10 Branded Post Templates',
+      'Page Setup (Instagram, LinkedIn, Facebook)',
+      'Brand Consistency Setup'
+    ],
+    benefits: [
+      'Professional Brand Image',
+      'Higher Engagement',
+      'Ready-to-use Templates',
+      'Improved Reach',
+      'Strong First Impression'
+    ],
+    technologies: [
+      'Canva',
+      'Adobe Photoshop',
+      'Figma',
+      'Meta Business Suite',
+      'LinkedIn Tools'
+    ],
   },
 ];
 
